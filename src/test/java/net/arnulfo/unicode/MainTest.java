@@ -24,6 +24,20 @@ public class MainTest {
   public static final String EURO = "\u20ac";
 
   @Test
+  public void testFaceWithTearsOfJoy() throws Exception {
+    String FACE_WITH_TEARS_OF_JOY = "😂";
+
+    // String.length() returns length in code unit, not in code point
+    assertEquals(2, FACE_WITH_TEARS_OF_JOY.length());
+
+    assertEquals(1, FACE_WITH_TEARS_OF_JOY.codePoints().count());
+
+    long codePoint = 0x1F602;
+    assertEquals(FACE_WITH_TEARS_OF_JOY, Character.toString((char)codePoint));
+     
+  }
+
+  @Test
   public void testLength() throws Exception {
     assertEquals(1, EURO.length());
   }
